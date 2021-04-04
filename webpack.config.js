@@ -14,12 +14,12 @@ module.exports = {
     },
     output: {
         filename: '[name].bundle.js',
-        path: __dirname + 'dist'   
+        path: __dirname + '/dist'   
     },
     module: {
         rules: [
             {
-                test: /\.jpg$/i,
+                test: /\.(png|jpe?g|gif)$/i,
                 use: [
                     {
                         loader: 'file-loader',
@@ -28,7 +28,7 @@ module.exports = {
                                 return "[path][name].[ext]"
                             },
                             publicPath: function(url) {
-                                return url.replace("../", "/assets/")
+                                return url.replace('../', '/assets/');
                             }
                         }
                     },
