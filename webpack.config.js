@@ -16,13 +16,15 @@ module.exports = {
         filename: '[name].bundle.js',
         path: __dirname + '/dist'   
     },
+    // to user file loader and image compress
     module: {
         rules: [
             {
-                test: /\.(png|jpe?g|gif)$/i,
+                test: /\.jpg$/i,
                 use: [
                     {
                         loader: 'file-loader',
+                        // change the image path to readable
                         options: {
                             name (file) {
                                 return "[path][name].[ext]"
@@ -32,6 +34,7 @@ module.exports = {
                             }
                         }
                     },
+                    // compress the image size
                     {
                         loader: 'image-webpack-loader'
                     }
@@ -46,7 +49,7 @@ module.exports = {
             jQuery: 'jquery'
         }),
         new BundleAnalyzerPlugin({
-            // the report outputs to an HTML file in the dist folder
+            // the analyze report outputs to an HTML file in the dist folder
             analyzerMode: 'static',
         })
     ],
