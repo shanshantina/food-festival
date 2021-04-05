@@ -3,8 +3,7 @@ const path = require("path");
 const webpack = require('webpack');
 
 
-
-module.exports = {
+const result = {
     // webpack configuration with three properties: entry, output, and mode
     entry: {
         app: './assets/js/script.js',
@@ -52,3 +51,6 @@ module.exports = {
     ],
     mode: 'development'
 };
+
+
+module.exports = result;
